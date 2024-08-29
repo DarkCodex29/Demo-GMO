@@ -59,7 +59,14 @@
 					"cantidadNecesaria": "4 UN",
 					"tipoAprovisionamiento": "Reserva para elemento PEP",
 					"destinatario": "MACASTRO",
-					"puestoDescarga": "PL.MANTTO"
+					"puestoDescarga": "PL.MANTTO",
+					"um": "UN",
+					"tp": "2",
+					"s": "1",
+					"almacenamiento": "1601",
+					"ce": "CO16",
+					"op": "0010",
+					"lote": "N/A"
 				}
 			],
 			"costos": {
@@ -143,7 +150,14 @@
 					"cantidadNecesaria": "2 UN",
 					"tipoAprovisionamiento": "Reserva para elemento PEP",
 					"destinatario": "RCASTRO",
-					"puestoDescarga": "PL.MANTTO"
+					"puestoDescarga": "PL.MANTTO",
+					"um": "UN",
+					"tp": "2",
+					"s": "1",
+					"almacenamiento": "1602",
+					"ce": "CO17",
+					"op": "0020",
+					"lote": "N/A"
 				}
 			],
 			"costos": {
@@ -227,7 +241,14 @@
 					"cantidadNecesaria": "10 UN",
 					"tipoAprovisionamiento": "Reserva para elemento PEP",
 					"destinatario": "GLOPEZ",
-					"puestoDescarga": "PL.MANTTO"
+					"puestoDescarga": "PL.MANTTO",
+					"um": "UN",
+					"tp": "2",
+					"s": "1",
+					"almacenamiento": "1603",
+					"ce": "CO18",
+					"op": "0030",
+					"lote": "N/A"
 				}
 			],
 			"costos": {

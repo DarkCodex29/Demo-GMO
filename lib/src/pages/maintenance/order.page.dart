@@ -262,6 +262,44 @@ class OrdenDetailPage extends StatelessWidget {
                 },
               ),
             ],
+            if (title == 'Componentes') ...[
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: ordenData['componentes'].length,
+                itemBuilder: (context, index) {
+                  final componente = ordenData['componentes'][index];
+                  return Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: ListTile(
+                      title: Text('Componente ${componente['posicion']}',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      subtitle: Text(componente['denominacion']),
+                      trailing: const Icon(Icons.arrow_forward),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ComponenteDetailPage(
+                              componenteData: componente,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
+            if (title == 'Costos') ...[
+              _buildCostosCategoryCard(
+                  context, 'Materiales', ordenData['costos']['materiales']),
+              _buildCostosCategoryCard(
+                  context, 'Servicios', ordenData['costos']['servicios']),
+            ],
             // Aquí podrías seguir con el resto de las cards o detalles si es necesario.
           ],
         ),
@@ -278,6 +316,31 @@ class OrdenDetailPage extends StatelessWidget {
       child: ListTile(
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(content ?? 'N/A'),
+      ),
+    );
+  }
+
+  Widget _buildCostosCategoryCard(BuildContext context, String title,
+      Map<String, dynamic> costosCategoriaData) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: ListTile(
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        trailing: const Icon(Icons.arrow_forward),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CostosCategoriaDetailPage(
+                categoria: title,
+                costosCategoriaData: costosCategoriaData,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -323,6 +386,129 @@ class OperacionDetailPage extends StatelessWidget {
             _buildDetailTile('Cantidad', operacionData['cantidad']),
             _buildDetailTile('Duración', operacionData['duracion']),
             _buildDetailTile('Ubicación', operacionData['ubicacion']),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDetailTile(String title, String? content) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: ListTile(
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(content ?? 'N/A'),
+      ),
+    );
+  }
+}
+
+class ComponenteDetailPage extends StatelessWidget {
+  final Map<String, dynamic> componenteData;
+
+  const ComponenteDetailPage({super.key, required this.componenteData});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detalles del Componente'),
+        backgroundColor: Colors.orange,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Detalles del Componente',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.orange,
+              ),
+            ),
+            const SizedBox(height: 16),
+            _buildDetailTile('Posición', componenteData['posicion']),
+            _buildDetailTile('Componente', componenteData['componente']),
+            _buildDetailTile('Denominación', componenteData['denominacion']),
+            _buildDetailTile(
+                'Cantidad Necesaria', componenteData['cantidadNecesaria']),
+            _buildDetailTile('Tipo de Aprovisionamiento',
+                componenteData['tipoAprovisionamiento']),
+            _buildDetailTile('Destinatario', componenteData['destinatario']),
+            _buildDetailTile(
+                'Puesto de Descarga', componenteData['puestoDescarga']),
+            _buildDetailTile('Unidad de Medida', componenteData['um']),
+            _buildDetailTile('Tipo', componenteData['tp']),
+            _buildDetailTile('Estado', componenteData['s']),
+            _buildDetailTile(
+                'Almacenamiento', componenteData['almacenamiento']),
+            _buildDetailTile('Centro', componenteData['ce']),
+            _buildDetailTile('Operación', componenteData['op']),
+            _buildDetailTile('Lote', componenteData['lote']),
+            _buildDetailTile('Tipo de Aprovisionamiento',
+                componenteData['tipoAprovisionamiento']),
+            _buildDetailTile('Destinatario', componenteData['destinatario']),
+            _buildDetailTile(
+                'Puesto de Descarga', componenteData['puestoDescarga']),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDetailTile(String title, String? content) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: ListTile(
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(content ?? 'N/A'),
+      ),
+    );
+  }
+}
+
+class CostosCategoriaDetailPage extends StatelessWidget {
+  final String categoria;
+  final Map<String, dynamic> costosCategoriaData;
+
+  const CostosCategoriaDetailPage(
+      {super.key, required this.categoria, required this.costosCategoriaData});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detalles de $categoria'),
+        backgroundColor: Colors.orange,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Detalles de $categoria',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.orange,
+              ),
+            ),
+            const SizedBox(height: 16),
+            _buildDetailTile(
+                'Costes Estimados', costosCategoriaData['costesEstimados']),
+            _buildDetailTile('Costes Plan', costosCategoriaData['costesPlan']),
+            _buildDetailTile(
+                'Costes Reales', costosCategoriaData['costesReales']),
+            _buildDetailTile('Moneda', costosCategoriaData['moneda']),
           ],
         ),
       ),
