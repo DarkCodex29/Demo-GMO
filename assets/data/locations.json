@@ -1,0 +1,26 @@
+{
+    "ubicaciones": [
+      {
+        "ubicacion": "PERU-CHI-PBYO-AC",
+        "mascCodif": "XXXX-XXX-SSSS-XX-XX",
+        "nivJerarquicos": "1 2 3 4 5 6",
+        "indEstructura": "MTT01",
+        "descripcion": "Estructura General de Mantenimiento PERU"
+      },
+      {
+        "ubicacion": "PERU-LIMA-PLANT-A1",
+        "mascCodif": "YYYY-YYY-TTTT-YY-YY",
+        "nivJerarquicos": "1 2 3 4",
+        "indEstructura": "MTT02",
+        "descripcion": "Planta de Lima"
+      },
+      {
+        "ubicacion": "PERU-TRU-IND-B2",
+        "mascCodif": "ZZZZ-ZZZ-QQQQ-ZZ-ZZ",
+        "nivJerarquicos": "1 2 3 4 5",
+        "indEstructura": "MTT03",
+        "descripcion": "Planta Industrial Trujillo"
+      }
+    ]
+  }
+  

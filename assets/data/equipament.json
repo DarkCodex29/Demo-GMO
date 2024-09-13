@@ -1,0 +1,144 @@
+{
+	"equipos": [
+		{
+			"equipo": "20008382",
+			"descripcion": "Bomba Centrífuga - Línea Nº2",
+			"estado": "Operativo",
+			"general": {
+				"tipo": "Bomba",
+				"clase": "BOMBA AGUA",
+				"grupo_autorizacion": "PE01",
+				"peso": "200kg",
+				"nro_inventario": "016329",
+				"fecha_validez": "17.02.2023"
+			},
+			"emplazamiento": {
+				"centro": "PE71",
+				"emplazamiento": "ALE2",
+				"local": "9311",
+				"area_empresa": "MTF",
+				"puesto_trabajo": "FL_JPLAN"
+			},
+			"organizacion": {
+				"sociedad": "PE02",
+				"activo_fijo": "2002000208",
+				"centro_coste": "PE02132201"
+			},
+			"estructura": {
+				"ubicacion_tecnica": "PERU-FL1-ALE2-PA-03",
+				"denominacion": "MOTOR Y CAJA",
+				"posicion": "1"
+			},
+			"garantias": {
+				"inicio_garantia": "01.01.2022",
+				"fin_garantia": "31.12.2025",
+				"tipo_garantia": "Total"
+			}
+		},
+		{
+			"equipo": "20000111",
+			"descripcion": "Motor D2 - Panga Detroit 671 ALE2",
+			"estado": "Mantenimiento",
+			"general": {
+				"tipo": "Motor",
+				"clase": "MOT DIESEL",
+				"grupo_autorizacion": "PE01",
+				"peso": "800kg",
+				"nro_inventario": "016329",
+				"fecha_validez": "17.02.2023"
+			},
+			"emplazamiento": {
+				"centro": "PE71",
+				"emplazamiento": "ALE2",
+				"local": "9311",
+				"area_empresa": "MTF",
+				"puesto_trabajo": "FL_JPLAN"
+			},
+			"organizacion": {
+				"sociedad": "PE02",
+				"activo_fijo": "2002000208",
+				"centro_coste": "PE02132201"
+			},
+			"estructura": {
+				"ubicacion_tecnica": "PERU-FL1-ALE2-PA-03",
+				"denominacion": "MOTOR Y CAJA",
+				"posicion": "1"
+			},
+			"garantias": {
+				"inicio_garantia": "01.01.2022",
+				"fin_garantia": "31.12.2025",
+				"tipo_garantia": "Total"
+			}
+		},
+		{
+			"equipo": "20009456",
+			"descripcion": "Generador de Emergencia - Planta Principal",
+			"estado": "Operativo",
+			"general": {
+				"tipo": "Generador",
+				"clase": "GEN ELECTRICO",
+				"grupo_autorizacion": "PE02",
+				"peso": "500kg",
+				"nro_inventario": "018764",
+				"fecha_validez": "10.03.2021"
+			},
+			"emplazamiento": {
+				"centro": "PE72",
+				"emplazamiento": "PLANTA-EMG",
+				"local": "8120",
+				"area_empresa": "MNT",
+				"puesto_trabajo": "FL_GEN_EMG"
+			},
+			"organizacion": {
+				"sociedad": "PE02",
+				"activo_fijo": "2003000409",
+				"centro_coste": "PE02142202"
+			},
+			"estructura": {
+				"ubicacion_tecnica": "PERU-FL2-EMG-03",
+				"denominacion": "GENERADOR Y CAJA",
+				"posicion": "2"
+			},
+			"garantias": {
+				"inicio_garantia": "05.05.2020",
+				"fin_garantia": "05.05.2025",
+				"tipo_garantia": "Parcial"
+			}
+		},
+		{
+			"equipo": "20001234",
+			"descripcion": "Compresor de Aire - Línea Nº1",
+			"estado": "Parado",
+			"general": {
+				"tipo": "Compresor",
+				"clase": "COMP AIRE",
+				"grupo_autorizacion": "PE03",
+				"peso": "350kg",
+				"nro_inventario": "013456",
+				"fecha_validez": "25.04.2024"
+			},
+			"emplazamiento": {
+				"centro": "PE73",
+				"emplazamiento": "COMP-1",
+				"local": "5012",
+				"area_empresa": "PRD",
+				"puesto_trabajo": "FL_COMP_1"
+			},
+			"organizacion": {
+				"sociedad": "PE03",
+				"activo_fijo": "2001000298",
+				"centro_coste": "PE03112201"
+			},
+			"estructura": {
+				"ubicacion_tecnica": "PERU-FL3-COMP-01",
+				"denominacion": "COMPRESOR Y VÁLVULA",
+				"posicion": "3"
+			},
+			"garantias": {
+				"inicio_garantia": "15.06.2023",
+				"fin_garantia": "15.06.2028",
+				"tipo_garantia": "Total"
+			}
+		}
+	]
+}
