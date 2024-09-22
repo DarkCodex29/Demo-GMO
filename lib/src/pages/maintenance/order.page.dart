@@ -6,10 +6,10 @@ class OrdenPage extends StatefulWidget {
   const OrdenPage({super.key});
 
   @override
-  _OrdenPageState createState() => _OrdenPageState();
+  OrdenPageState createState() => OrdenPageState();
 }
 
-class _OrdenPageState extends State<OrdenPage> {
+class OrdenPageState extends State<OrdenPage> {
   List<Map<String, dynamic>> ordenes = [];
   Map<String, dynamic>? selectedOrden;
 

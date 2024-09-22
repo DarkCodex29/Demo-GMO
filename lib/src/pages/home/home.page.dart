@@ -14,15 +14,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  Future<void> _logout(BuildContext context) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('isLoggedIn');
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const AuthPage()),
-    );
-  }
-
   Future<void> _confirmLogout(BuildContext context) async {
     final shouldLogout = await showDialog<bool>(
       context: context,
@@ -331,6 +322,7 @@ class HomePage extends StatelessWidget {
                     );*/
                   },
                 ),
+                /*
                 ListTile(
                   leading: const Icon(Icons.close),
                   title: const Text('Cierre'),
@@ -345,6 +337,7 @@ class HomePage extends StatelessWidget {
                     */
                   },
                 ),
+                */
               ],
             ),
           ],

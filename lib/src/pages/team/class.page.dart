@@ -6,10 +6,10 @@ class ClasesPage extends StatefulWidget {
   const ClasesPage({super.key});
 
   @override
-  _ClasesPageState createState() => _ClasesPageState();
+  ClasesPageState createState() => ClasesPageState();
 }
 
-class _ClasesPageState extends State<ClasesPage> {
+class ClasesPageState extends State<ClasesPage> {
   List<Map<String, dynamic>> clases = [];
   Map<String, dynamic>? selectedClase;
 

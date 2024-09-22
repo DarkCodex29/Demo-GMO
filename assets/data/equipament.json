@@ -25,7 +25,7 @@
 				"centro_coste": "PE02132201"
 			},
 			"estructura": {
-				"ubicacion_tecnica": "PERU-FL1-ALE2-PA-03",
+				"ubicacion_tecnica": "1973-PLNT-MOLIEN-MOLINS-20X30ABS",
 				"denominacion": "MOTOR Y CAJA",
 				"posicion": "1"
 			},
@@ -60,7 +60,7 @@
 				"centro_coste": "PE02132201"
 			},
 			"estructura": {
-				"ubicacion_tecnica": "PERU-FL1-ALE2-PA-03",
+				"ubicacion_tecnica": "1973-PLNT-MOLIEN-MOLINS-20X30ABS",
 				"denominacion": "MOTOR Y CAJA",
 				"posicion": "1"
 			},
@@ -95,7 +95,7 @@
 				"centro_coste": "PE02142202"
 			},
 			"estructura": {
-				"ubicacion_tecnica": "PERU-FL2-EMG-03",
+				"ubicacion_tecnica": "1973-PLNT-MOLIEN-MOLINS-20X30ABS",
 				"denominacion": "GENERADOR Y CAJA",
 				"posicion": "2"
 			},
@@ -130,7 +130,7 @@
 				"centro_coste": "PE03112201"
 			},
 			"estructura": {
-				"ubicacion_tecnica": "PERU-FL3-COMP-01",
+				"ubicacion_tecnica": "1973-PLNT-MOLIEN-MOLINS-KOOPER",
 				"denominacion": "COMPRESOR Y VÁLVULA",
 				"posicion": "3"
 			},

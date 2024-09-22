@@ -8,15 +8,14 @@ class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
 
   @override
-  _AuthPageState createState() => _AuthPageState();
+  AuthPageState createState() => AuthPageState();
 }
 
-class _AuthPageState extends State<AuthPage> {
+class AuthPageState extends State<AuthPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  bool _isPasswordVisible =
-      false; // Para controlar la visibilidad de la contraseña
-  final bool _isLoading = false; // Para controlar la visualización del progress bar
+  bool _isPasswordVisible = false;
+  final bool _isLoading = false;
 
   Map<String, String> users = {};
 
@@ -73,7 +72,6 @@ class _AuthPageState extends State<AuthPage> {
               ),
             ),
             const SizedBox(height: 40),
-            // Campo de Usuario
             TextField(
               controller: _usernameController,
               decoration: InputDecoration(
@@ -89,7 +87,6 @@ class _AuthPageState extends State<AuthPage> {
               ),
             ),
             const SizedBox(height: 16),
-            // Campo de Contraseña
             TextField(
               controller: _passwordController,
               obscureText: !_isPasswordVisible,
@@ -121,9 +118,7 @@ class _AuthPageState extends State<AuthPage> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {
-                  // Acción de "Forgot password"
-                },
+                onPressed: () {},
                 child: const Text(
                   '¿Olvidaste tu contraseña?',
                   style: TextStyle(color: Colors.blue),

@@ -6,10 +6,10 @@ class EquipmentPage extends StatefulWidget {
   const EquipmentPage({super.key});
 
   @override
-  _EquipmentPageState createState() => _EquipmentPageState();
+  EquipmentPageState createState() => EquipmentPageState();
 }
 
-class _EquipmentPageState extends State<EquipmentPage> {
+class EquipmentPageState extends State<EquipmentPage> {
   List<Map<String, dynamic>> equipments = [];
   Map<String, dynamic>? selectedEquipment;
 
@@ -25,20 +25,6 @@ class _EquipmentPageState extends State<EquipmentPage> {
     final data = await json.decode(response);
     setState(() {
       equipments = List<Map<String, dynamic>>.from(data['equipos']);
-    });
-  }
-
-  void _filterEquipments(String query) {
-    setState(() {
-      selectedEquipment = equipments.firstWhere((equipment) =>
-          equipment['equipo']
-              .toString()
-              .toLowerCase()
-              .contains(query.toLowerCase()) ||
-          equipment['descripcion']
-              .toString()
-              .toLowerCase()
-              .contains(query.toLowerCase()));
     });
   }
 
@@ -61,13 +47,41 @@ class _EquipmentPageState extends State<EquipmentPage> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  onChanged: _filterEquipments,
-                  decoration: const InputDecoration(
-                    hintText: 'Buscar equipo...',
-                    prefixIcon: Icon(Icons.search),
-                    border: InputBorder.none,
-                  ),
+                child: Autocomplete<Map<String, dynamic>>(
+                  optionsBuilder: (TextEditingValue textEditingValue) {
+                    if (textEditingValue.text.isEmpty) {
+                      return const Iterable<Map<String, dynamic>>.empty();
+                    }
+                    return equipments.where((Map<String, dynamic> equipment) {
+                      return equipment['equipo']
+                              .toString()
+                              .toLowerCase()
+                              .contains(textEditingValue.text.toLowerCase()) ||
+                          equipment['descripcion']
+                              .toString()
+                              .toLowerCase()
+                              .contains(textEditingValue.text.toLowerCase());
+                    });
+                  },
+                  displayStringForOption: (Map<String, dynamic> option) =>
+                      option['equipo'],
+                  onSelected: (Map<String, dynamic> selection) {
+                    setState(() {
+                      selectedEquipment = selection;
+                    });
+                  },
+                  fieldViewBuilder: (context, textEditingController, focusNode,
+                      onFieldSubmitted) {
+                    return TextField(
+                      controller: textEditingController,
+                      focusNode: focusNode,
+                      decoration: const InputDecoration(
+                        hintText: 'Buscar equipo...',
+                        prefixIcon: Icon(Icons.search),
+                        border: InputBorder.none,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),

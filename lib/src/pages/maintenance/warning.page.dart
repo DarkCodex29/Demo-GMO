@@ -6,10 +6,10 @@ class AvisoPage extends StatefulWidget {
   const AvisoPage({super.key});
 
   @override
-  _AvisoPageState createState() => _AvisoPageState();
+  AvisoPageState createState() => AvisoPageState();
 }
 
-class _AvisoPageState extends State<AvisoPage> {
+class AvisoPageState extends State<AvisoPage> {
   List<Map<String, dynamic>> avisos = [];
   Map<String, dynamic>? selectedAviso;
 
@@ -19,7 +19,6 @@ class _AvisoPageState extends State<AvisoPage> {
     _loadAvisos();
   }
 
-  // Cargar los datos del JSON desde el archivo en assets
   Future<void> _loadAvisos() async {
     final String response =
         await rootBundle.loadString('assets/data/avisos.json');

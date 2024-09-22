@@ -6,10 +6,10 @@ class JobPage extends StatefulWidget {
   const JobPage({super.key});
 
   @override
-  _JobPageState createState() => _JobPageState();
+  JobPageState createState() => JobPageState();
 }
 
-class _JobPageState extends State<JobPage> {
+class JobPageState extends State<JobPage> {
   List<Map<String, dynamic>> jobs = [];
   Map<String, dynamic>? selectedJob;
 
@@ -193,7 +193,6 @@ class JobDetailPage extends StatelessWidget {
     }
   }
 
-  // Método para formatear los títulos
   String _formatTitle(String title) {
     return title.replaceAll('_', ' ').split(' ').map((word) {
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
