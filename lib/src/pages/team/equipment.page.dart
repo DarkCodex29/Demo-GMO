@@ -11,7 +11,6 @@ class EquipmentPage extends StatefulWidget {
 
 class _EquipmentPageState extends State<EquipmentPage> {
   List<Map<String, dynamic>> equipments = [];
-  List<Map<String, dynamic>> filteredEquipments = [];
   Map<String, dynamic>? selectedEquipment;
 
   @override
@@ -26,23 +25,20 @@ class _EquipmentPageState extends State<EquipmentPage> {
     final data = await json.decode(response);
     setState(() {
       equipments = List<Map<String, dynamic>>.from(data['equipos']);
-      filteredEquipments = []; // Inicialmente vacío
     });
   }
 
   void _filterEquipments(String query) {
     setState(() {
-      filteredEquipments = equipments
-          .where((equipment) =>
-              equipment['equipo']
-                  .toString()
-                  .toLowerCase()
-                  .contains(query.toLowerCase()) ||
-              equipment['descripcion']
-                  .toString()
-                  .toLowerCase()
-                  .contains(query.toLowerCase()))
-          .toList();
+      selectedEquipment = equipments.firstWhere((equipment) =>
+          equipment['equipo']
+              .toString()
+              .toLowerCase()
+              .contains(query.toLowerCase()) ||
+          equipment['descripcion']
+              .toString()
+              .toLowerCase()
+              .contains(query.toLowerCase()));
     });
   }
 
@@ -56,8 +52,8 @@ class _EquipmentPageState extends State<EquipmentPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: [
-            // Buscador
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
             Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -76,122 +72,124 @@ class _EquipmentPageState extends State<EquipmentPage> {
               ),
             ),
             const SizedBox(height: 16.0),
-            // Lista de resultados
             Expanded(
-              child: filteredEquipments.isEmpty
-                  ? const Center(child: Text('No hay resultados.'))
-                  : ListView.builder(
-                      itemCount: filteredEquipments.length,
-                      itemBuilder: (context, index) {
-                        final equipment = filteredEquipments[index];
-                        return Card(
-                          elevation: 4,
-                          margin: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: ListTile(
-                            title: Text('Equipo: ${equipment['equipo']}'),
-                            subtitle: Text(equipment['descripcion']),
-                            trailing: const Icon(Icons.arrow_forward),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      EquipmentDetailPage(equipment: equipment),
-                                ),
-                              );
-                            },
-                          ),
-                        );
-                      },
-                    ),
+              child: ListView(
+                children: <Widget>[
+                  _buildCard(context, 'General', Icons.info),
+                  _buildCard(context, 'Emplazamiento', Icons.location_on),
+                  _buildCard(context, 'Organización', Icons.business),
+                  _buildCard(context, 'Estructura', Icons.account_tree),
+                  _buildCard(context, 'Garantías', Icons.shield),
+                ],
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildCard(BuildContext context, String title, IconData icon) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: ListTile(
+        leading: Icon(icon, color: Colors.orange),
+        title: Text(title),
+        trailing: const Icon(Icons.arrow_forward),
+        onTap: () {
+          if (selectedEquipment != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => EquipmentDetailPage(
+                  title: title,
+                  equipmentData: selectedEquipment!,
+                ),
+              ),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Por favor, selecciona un equipo.'),
+              ),
+            );
+          }
+        },
       ),
     );
   }
 }
 
 class EquipmentDetailPage extends StatelessWidget {
-  final Map<String, dynamic> equipment;
+  final String title;
+  final Map<String, dynamic> equipmentData;
 
-  const EquipmentDetailPage({super.key, required this.equipment});
+  const EquipmentDetailPage(
+      {super.key, required this.title, required this.equipmentData});
 
   @override
   Widget build(BuildContext context) {
+    final dynamic detailData = equipmentData[_getDetailKey(title)];
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles del Equipo ${equipment['equipo']}'),
+        title: Text(title),
         backgroundColor: Colors.orange,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        child: ListView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildDetailTile('Equipo', equipment['equipo']),
-            _buildDetailTile('Descripción', equipment['descripcion']),
-            _buildDetailTile('Estado', equipment['estado']),
-            const SizedBox(height: 16.0),
-            const Text(
-              'General',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+              'Detalles de $title',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.orange,
+              ),
             ),
-            const SizedBox(height: 8.0),
-            _buildDetailTile('Tipo', equipment['general']['tipo']),
-            _buildDetailTile('Clase', equipment['general']['clase']),
-            _buildDetailTile('Grupo Autorización',
-                equipment['general']['grupo_autorizacion']),
-            _buildDetailTile('Peso', equipment['general']['peso']),
-            _buildDetailTile(
-                'Nro Inventario', equipment['general']['nro_inventario']),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Emplazamiento',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8.0),
-            _buildDetailTile(
-                'Centro Emplazamiento', equipment['emplazamiento']['centro']),
-            _buildDetailTile(
-                'Emplazamiento', equipment['emplazamiento']['emplazamiento']),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Organización',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8.0),
-            _buildDetailTile('Sociedad', equipment['organizacion']['sociedad']),
-            _buildDetailTile(
-                'Activo Fijo', equipment['organizacion']['activo_fijo']),
-            _buildDetailTile(
-                'Centro Coste', equipment['organizacion']['centro_coste']),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Estructura',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8.0),
-            _buildDetailTile('Ubicación Técnica',
-                equipment['estructura']['ubicacion_tecnica']),
-            _buildDetailTile(
-                'Denominación', equipment['estructura']['denominacion']),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Garantías',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8.0),
-            _buildDetailTile(
-                'Inicio Garantía', equipment['garantias']['inicio_garantia']),
-            _buildDetailTile(
-                'Fin Garantía', equipment['garantias']['fin_garantia']),
+            const SizedBox(height: 16),
+            if (detailData != null) ...[
+              ...detailData.entries.map<Widget>((entry) {
+                return _buildDetailTile(
+                    _formatTitle(entry.key), entry.value.toString());
+              }).toList(),
+            ] else ...[
+              const Text('No hay información disponible.'),
+            ],
           ],
         ),
       ),
     );
   }
 
-  Widget _buildDetailTile(String title, String? value) {
+  String _getDetailKey(String title) {
+    switch (title) {
+      case 'General':
+        return 'general';
+      case 'Emplazamiento':
+        return 'emplazamiento';
+      case 'Organización':
+        return 'organizacion';
+      case 'Estructura':
+        return 'estructura';
+      case 'Garantías':
+        return 'garantias';
+      default:
+        return '';
+    }
+  }
+
+  String _formatTitle(String title) {
+    return title.replaceAll('_', ' ').split(' ').map((word) {
+      return word[0].toUpperCase() + word.substring(1).toLowerCase();
+    }).join(' ');
+  }
+
+  Widget _buildDetailTile(String title, String value) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(
@@ -202,7 +200,7 @@ class EquipmentDetailPage extends StatelessWidget {
           title,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(value ?? 'N/A'),
+        subtitle: Text(value),
       ),
     );
   }
