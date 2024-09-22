@@ -17,7 +17,8 @@
 				"emplazamiento": "ALE2",
 				"local": "9311",
 				"area_empresa": "MTF",
-				"puesto_trabajo": "FL_JPLAN"
+				"puesto_trabajo": "FL_JPLAN",
+				"utilizacion": "4"
 			},
 			"organizacion": {
 				"sociedad": "PE02",
@@ -33,7 +34,25 @@
 				"inicio_garantia": "01.01.2022",
 				"fin_garantia": "31.12.2025",
 				"tipo_garantia": "Total"
-			}
+			},
+			"materiales": [
+				{
+					"codigo_material": "14110006",
+					"nombre_material": "Celda Carga 1000 KG",
+					"cantidad": 2,
+					"unidad": "LC",
+					"valido_desde": "22.09.2024",
+					"valido_hasta": "31.12.9999"
+				},
+				{
+					"codigo_material": "14110007",
+					"nombre_material": "Motor Principal 500 KW",
+					"cantidad": 1,
+					"unidad": "UND",
+					"valido_desde": "22.09.2024",
+					"valido_hasta": "31.12.9999"
+				}
+			]
 		},
 		{
 			"equipo": "20000111",
@@ -52,7 +71,8 @@
 				"emplazamiento": "ALE2",
 				"local": "9311",
 				"area_empresa": "MTF",
-				"puesto_trabajo": "FL_JPLAN"
+				"puesto_trabajo": "FL_JPLAN",
+				"utilizacion": "4"
 			},
 			"organizacion": {
 				"sociedad": "PE02",
@@ -68,7 +88,17 @@
 				"inicio_garantia": "01.01.2022",
 				"fin_garantia": "31.12.2025",
 				"tipo_garantia": "Total"
-			}
+			},
+			"materiales": [
+				{
+					"codigo_material": "14110009",
+					"nombre_material": "Filtro de Aceite",
+					"cantidad": 3,
+					"unidad": "PC",
+					"valido_desde": "01.01.2022",
+					"valido_hasta": "31.12.2025"
+				}
+			]
 		},
 		{
 			"equipo": "20009456",
