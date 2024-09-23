@@ -96,10 +96,10 @@ class LocationsPageState extends State<LocationsPage> {
               child: ListView(
                 children: <Widget>[
                   _buildCard(context, 'Ubicación Técnica', Icons.place),
-                  _buildCard(context, 'Máscara Codificación', Icons.code),
-                  _buildCard(context, 'Niveles Jerárquicos', Icons.layers),
-                  _buildCard(context, 'Indicador Estructura', Icons.info),
-                  _buildCard(context, 'Descripción', Icons.description),
+                  //_buildCard(context, 'Máscara Codificación', Icons.code),
+                  //_buildCard(context, 'Niveles Jerárquicos', Icons.layers),
+                  //_buildCard(context, 'Indicador Estructura', Icons.info),
+                  //_buildCard(context, 'Descripción', Icons.description),
                   _buildCard(context, 'Equipos', Icons.build),
                 ],
               ),

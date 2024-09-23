@@ -1,19 +1,19 @@
 {
 	"puestos_trabajo": [
 		{
-			"puesto": "E310INV1",
-			"centro": "CO73",
-			"descripcion": "Jefe de Flota",
+			"puesto": "FAMECANI",
+			"centro": "0101",
+			"descripcion": "Mecánico de planta",
 			"datos_basicos": {
-				"categoria_trabajo": "0003",
-				"responsable": "M01",
-				"emplazamiento": "TMMN",
+				"categoria_trabajo": "0005",
+				"responsable": "002",
+				"emplazamiento": "",
 				"sistema_qde": "",
 				"area_produccion": "",
-				"utilizacion_hruta": "004"
+				"utilizacion_hruta": "009"
 			},
 			"valores_propuestos": {
-				"clave_control": "ZPM1",
+				"clave_control": "POM01",
 				"cc_nomina": "",
 				"grupo_salarial": "",
 				"hojas_sueldo": "0",
@@ -21,8 +21,8 @@
 			},
 			"capacidades": {
 				"clase_capacidad": "002",
-				"persona": "JEFE DE FLOTA",
-				"form_nec_fabr": "SAP008"
+				"persona": "Mecánico de planta",
+				"form_nec_fabr": "POM01"
 			},
 			"programacion": {
 				"duracion_preparacion": "0",
@@ -34,105 +34,15 @@
 				"unidad_trabajo": "H"
 			},
 			"calculo_coste": {
-				"fecha_inicio": "01.08.2015",
-				"fecha_final": "31.12.9999",
+				"fecha_inicio": "01.01.2024",
+				"fecha_final": "31.12.2030",
 				"sociedad": "PE00",
-				"centro_coste": "PE02132201"
+				"centro_coste": "CECOMANTTO"
 			},
 			"tecnologia": {
 				"tipo_maquina": "",
 				"concepto_clasificacion": "",
 				"planificador_cap": ""
-			}
-		},
-		{
-			"puesto": "FL_JEFE1",
-			"centro": "PE71",
-			"descripcion": "Jefe de Flota Chimbote",
-			"datos_basicos": {
-				"categoria_trabajo": "0004",
-				"responsable": "M02",
-				"emplazamiento": "TMCH",
-				"sistema_qde": "",
-				"area_produccion": "Flota",
-				"utilizacion_hruta": "005"
-			},
-			"valores_propuestos": {
-				"clave_control": "ZPM2",
-				"cc_nomina": "",
-				"grupo_salarial": "",
-				"hojas_sueldo": "1",
-				"impresora": "IMP001"
-			},
-			"capacidades": {
-				"clase_capacidad": "003",
-				"persona": "JEFE DE FLOTA CHIMBOTE",
-				"form_nec_fabr": "SAP009"
-			},
-			"programacion": {
-				"duracion_preparacion": "5",
-				"duracion_tratamiento": "10",
-				"duracion_desmontar": "3",
-				"tiempo_espera_normal": "1.000",
-				"tiempo_espera_minimo": "0.500",
-				"dimension_trabajo": "TIME",
-				"unidad_trabajo": "H"
-			},
-			"calculo_coste": {
-				"fecha_inicio": "01.01.2016",
-				"fecha_final": "31.12.9999",
-				"sociedad": "PE01",
-				"centro_coste": "PE02132401"
-			},
-			"tecnologia": {
-				"tipo_maquina": "Centrifuga",
-				"concepto_clasificacion": "A",
-				"planificador_cap": "PL001"
-			}
-		},
-		{
-			"puesto": "MNT_JEFE",
-			"centro": "PE72",
-			"descripcion": "Jefe de Mantenimiento",
-			"datos_basicos": {
-				"categoria_trabajo": "0005",
-				"responsable": "M03",
-				"emplazamiento": "TMLN",
-				"sistema_qde": "",
-				"area_produccion": "Mantenimiento",
-				"utilizacion_hruta": "006"
-			},
-			"valores_propuestos": {
-				"clave_control": "ZPM3",
-				"cc_nomina": "",
-				"grupo_salarial": "",
-				"hojas_sueldo": "2",
-				"impresora": "IMP002"
-			},
-			"capacidades": {
-				"clase_capacidad": "004",
-				"persona": "JEFE DE MANTENIMIENTO",
-				"form_nec_fabr": "SAP010"
-			},
-			"programacion": {
-				"duracion_preparacion": "8",
-				"duracion_tratamiento": "12",
-				"duracion_desmontar": "4",
-				"tiempo_espera_normal": "2.000",
-				"tiempo_espera_minimo": "0.800",
-				"dimension_trabajo": "TIME",
-				"unidad_trabajo": "H"
-			},
-			"calculo_coste": {
-				"fecha_inicio": "01.05.2018",
-				"fecha_final": "31.12.9999",
-				"sociedad": "PE02",
-				"centro_coste": "PE02132501"
-			},
-			"tecnologia": {
-				"tipo_maquina": "Bombas",
-				"concepto_clasificacion": "B",
-				"planificador_cap": "PL002"
 			}
 		}
 	]

@@ -1,26 +1,11 @@
 {
-    "ubicaciones": [
-      {
-        "ubicacion": "1973-PLNT-MOLIEN-MOLINS-20X30ABS",
-        "mascCodif": "XXXX-XXX-SSSS-XX-XX",
-        "nivJerarquicos": "1 2 3 4 5 6",
-        "indEstructura": "MTT01",
-        "descripcion": "Estructura General de Mantenimiento PERU"
-      },
-      {
-        "ubicacion": "1973-PLNT-MOLIEN-MOLINS-KOOPER",
-        "mascCodif": "YYYY-YYY-TTTT-YY-YY",
-        "nivJerarquicos": "1 2 3 4",
-        "indEstructura": "MTT02",
-        "descripcion": "Planta de Lima"
-      },
-      {
-        "ubicacion": "AT01-PLT-CHAN-CHPR-CHANCA01",
-        "mascCodif": "ZZZZ-ZZZ-QQQQ-ZZ-ZZ",
-        "nivJerarquicos": "1 2 3 4 5",
-        "indEstructura": "MTT03",
-        "descripcion": "Planta Industrial Trujillo"
-      }
-    ]
-  }
-  
+	"ubicaciones": [
+		{
+			"ubicacion": "FVG-PLA-MOLI-MOBA-MOL01",
+			"mascCodif": "XXXX-XXX-SSSS-XX-XX",
+			"nivJerarquicos": "1 2 3 4 5 6",
+			"indEstructura": "MTT01",
+			"descripcion": "Mina de Oro FVGOLD"
+		}
+	]
+}

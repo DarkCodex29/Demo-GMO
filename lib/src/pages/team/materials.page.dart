@@ -6,10 +6,10 @@ class MaterialsPage extends StatefulWidget {
   const MaterialsPage({super.key});
 
   @override
-  _MaterialsPageState createState() => _MaterialsPageState();
+  MaterialsPageState createState() => MaterialsPageState();
 }
 
-class _MaterialsPageState extends State<MaterialsPage> {
+class MaterialsPageState extends State<MaterialsPage> {
   List<Map<String, dynamic>> equipos = [];
   List<Map<String, dynamic>> filteredMaterials = [];
   String selectedEquipo = '';
@@ -44,7 +44,32 @@ class _MaterialsPageState extends State<MaterialsPage> {
             matchUtilizacion &&
             equipo.containsKey('materiales');
       }).toList();
+
+      if (filteredMaterials.isEmpty) {
+        _showNoMaterialsFoundModal();
+      }
     });
+  }
+
+  void _showNoMaterialsFoundModal() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Sin Resultados'),
+          content: const Text(
+              'No se encontraron materiales para el equipo seleccionado.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -74,7 +99,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
                       itemBuilder: (context, index) {
                         final equipo = filteredMaterials[index];
                         return Card(
-                          elevation: 0, // Sin elevación para evitar líneas
+                          elevation: 0,
                           margin: const EdgeInsets.symmetric(vertical: 8.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -178,7 +203,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
         ),
         const SizedBox(height: 16.0),
         SizedBox(
-          width: double.infinity, // Ancho igual que los TextFields
+          width: double.infinity,
           child: ElevatedButton(
             onPressed: _filterMaterials,
             style: ElevatedButton.styleFrom(
@@ -202,7 +227,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 16.0),
       child: Card(
-        elevation: 0, // Sin elevación para evitar líneas
+        elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

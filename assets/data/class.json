@@ -1,60 +1,16 @@
 {
-    "clases": [
-      {
-        "categoriaClase": "002",
-        "claseEquipo": "CENTRIFUGA",
-        "validoDe": "27.08.2024",
-        "caracteristicas": [
-          "CAPACIDAD_L/H",
-          "FASES",
-          "GRADOPROTECCION_IP",
-          "VOLTAJE_V"
-        ],
-        "datosAdicionales": {
-          "fabricante": "Empresa A",
-          "peso": "2000 kg",
-          "altura": "3 metros",
-          "ubicacion": "Almacén 1"
-        }
-      },
-      {
-        "categoriaClase": "003",
-        "claseEquipo": "BOMBA_LAMELLA",
-        "validoDe": "05.07.2023",
-        "caracteristicas": [
-          "ALTURA_M",
-          "CAUDAL_M3/H",
-          "DIAMETRODESCARG_IN",
-          "DIAMETROSUCCION_IN",
-          "RPM",
-          "POTENCIA_HP"
-        ],
-        "datosAdicionales": {
-          "fabricante": "Empresa B",
-          "peso": "1000 kg",
-          "altura": "1.5 metros",
-          "ubicacion": "Almacén 2"
-        }
-      },
-      {
-        "categoriaClase": "004",
-        "claseEquipo": "ENFRIADORHARINA",
-        "validoDe": "28.06.2019",
-        "caracteristicas": [
-          "CAPACIDAD_FLUJO_TON/H",
-          "CILINDRO_LARGO_M",
-          "CILINDRO_DIAMETRO_M",
-          "NUMERO_PALETAS",
-          "POTENCIA_HP",
-          "RPM"
-        ],
-        "datosAdicionales": {
-          "fabricante": "Empresa C",
-          "peso": "3000 kg",
-          "altura": "2 metros",
-          "ubicacion": "Almacén 3"
-        }
-      }
-    ]
-  }
-  
+	"clases": [
+		{
+			"categoriaClase": "002",
+			"claseEquipo": "MOLINO",
+			"validoDe": "27.08.2024",
+			"caracteristicas": ["CAPACIDAD DE CARGA MOLINO"],
+			"datosAdicionales": {
+				"fabricante": "Fabricante Desconocido",
+				"peso": "5000 kg",
+				"altura": "4 metros",
+				"ubicacion": "Planta de Procesamiento"
+			}
+		}
+	]
+}
